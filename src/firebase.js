@@ -1,17 +1,18 @@
-
 import { initializeApp } from "firebase/app";
 
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
+
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyBcScTqyg37FtcupowWNS2iT47XQAkRAQs",
-	authDomain: "linkedin-clone-ab1c2.firebaseapp.com",
-	projectId: "linkedin-clone-ab1c2",
-	storageBucket: "linkedin-clone-ab1c2.appspot.com",
-	messagingSenderId: "467526877702",
-	appId: "1:467526877702:web:efa53873750436ba7f7987",
-	measurementId: "G-KYJ2J6R407"
+  apiKey: "AIzaSyBcScTqyg37FtcupowWNS2iT47XQAkRAQs",
+  authDomain: "linkedin-clone-ab1c2.firebaseapp.com",
+  projectId: "linkedin-clone-ab1c2",
+  storageBucket: "linkedin-clone-ab1c2.appspot.com",
+  messagingSenderId: "467526877702",
+  appId: "1:467526877702:web:efa53873750436ba7f7987",
+  measurementId: "G-KYJ2J6R407",
 };
 
 // const firebaseConfig = {
@@ -31,7 +32,8 @@ const app = initializeApp(firebaseConfig);
 // 	ignoreUndefinedProperties: true
 // })
 
-export const auth = getAuth(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage();
 
-export const db = getFirestore(app);
-
+export { auth, db, storage };
